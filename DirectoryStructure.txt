@@ -1,0 +1,46 @@
+## 계층형 아키텍처 패턴 (Layered Architecture Pattern)
+
+내 프로젝트 폴더 이름
+├── app.js
+├── config
+│   └── config.json
+├── controllers
+│   └── posts.controller.js
+├── migrations
+│   └── 20220731133318-create-posts.js
+├── models
+│   ├── index.js
+│   └── posts.js
+├── repositories
+│   └── posts.repository.js
+├── routes
+│   ├── index.js
+│   └── posts.routes.js
+├── services
+│   └── posts.service.js
+├── package.json
+└── package-lock.json
+
+
+
+
+// User, Post, Comment 모델 생성 명령어 (attrubutes 내용에 띄어쓰기X)
+npx sequelize model:generate --name Users --attributes nickname:string,password:string
+npx sequelize model:generate --name Posts --attributes userId:integer,title:string,content:string,likesCount:integer
+npx sequelize model:generate --name Comments --attributes postId:integer,userId:integer,comment:string
+npx sequelize model:generate --name Likes --attributes userId:integer,postId:integer
+
+// 데이터베이스 테이블 조회
+USE db_test_NW3;
+SELECT * FROM Users
+SHOW TABLES
+
+
+// `DROP` : DATABASE, TABLE, VIEW, INDEX 등을 **삭제**할 때 사용합니다.
+DROP DATABASE [데이터베이스명]
+DROP TABLE [테이블이름]
+
+// 테이블에 데이터 삽입
+USE db_test_NW3;
+INSERT INTO Users (nickname, password) VALUES
+    ('test1', 'pw11'), ('test2', 'pw11');
