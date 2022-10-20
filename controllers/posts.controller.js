@@ -3,7 +3,8 @@ const PostService = require('../services/posts.service');
 
 class PostsController {
   postService = new PostService(); // postService를 PostsController 클래스의 멤버 변수로 할당합니다. 
-//게시글조회
+
+  //게시글조회
 
   getPosts = async (req, res, next) => { // 서비스 계층에 구현된 findAllPost 로직을 실행합니다.
     try {
@@ -15,6 +16,7 @@ class PostsController {
 res.status(400).send({'message': "게시글을 조회할 수 없습니다."})
 }
   };
+  
 //게시글 상세조회
   getOnePosts = async (req, res, next) => {
     try {
