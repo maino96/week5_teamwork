@@ -1,6 +1,2 @@
 node_modules
 .env
-likes.controller.js
-likes.routes.js
-likes.service.js
-likes.repository.js
